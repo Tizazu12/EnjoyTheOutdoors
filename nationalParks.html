@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>National Parks</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="css/site.css"rel="stylesheet">
+  </head>
+  <body >
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">National Parks</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="nationalParks.html">National Parks </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="mountainsPage.html">Mountains</a>
+              </li> 
+            </ul>
+          
+          </div>
+        </div>
+      </div>
+    </nav>
+    </div>
+    <br class="mb-8">
+
+
+    <main class="mt-6">
+      
+      <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>National parks</h1>
+            </div>
+        </div>
+
+       
+
+    
+          
+
+      </div>
+      <div class="form-check">
+      <input class="form-check-input" name="radio" type="radio" value="Location" id="locationCheckbox">
+      <label class="form-check-label" for="flexCheckDefault">
+       By Location 
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" name="radio" type="radio" value="type" id="typeCheckbox" checked>
+      <label class="form-check-label" for="flexCheckChecked">
+        By Park Type
+      </label>
+    </div>
+
+  
+    <div class="container"style="display:" >
+      <div class="row mt-4">
+          <div class="col">
+              <select id="Dropdown" class="form-select">
+                  <option selected value="">Please Select A Location </option>
+  
+              </select>
+          </div>
+      </div>
+      <div class="row mt-4">
+          <div class="col">
+
+            <table class="table table-boredred">  
+              <thead>
+                <tr>
+                  <th>Location Name</th>
+                  <th>Address</th>
+                  <th>State</th>
+                  <th> Phone No.</th>
+                </tr>
+              </thead>
+
+              <tbody id="listResults">
+
+              </tbody>
+
+
+
+            </table>
+
+          </div>
+      </div>
+      <!-- <div id="parksDetailRow" class="row"> -->
+          
+      </div>
+  </div>
+  
+    
+      
+
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="scripts/locationData.js"></script>
+  <script src="scripts/parkTypesData.js"></script>
+  <script src="scripts/natinalParkData.js"></script>
+ <script src="scripts/index.js"></script> 
+ 
+  <footer></footer>
+</html>
