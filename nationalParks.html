@@ -10,6 +10,8 @@
   <body >
     <nav class="navbar navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
+        <img width="40" height="32" rel="" src="images/icons8-mountain-color-glass-96.png">
+        <a class="navbar-brand" href="#"></a>
         <a class="navbar-brand" href="#"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -38,8 +40,7 @@
     </nav>
     </div>
     <br class="mb-8">
-
-
+    <hr class="featurette-divider">
     <main class="mt-6">
       
       <div class="container">
@@ -48,40 +49,31 @@
                 <h1>National parks</h1>
             </div>
         </div>
-
-       
-
-    
-          
-
       </div>
-      <div class="form-check">
-      <input class="form-check-input" name="radio" type="radio" value="Location" id="locationCheckbox">
-      <label class="form-check-label" for="flexCheckDefault">
-       By Location 
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" name="radio" type="radio" value="type" id="typeCheckbox" checked>
-      <label class="form-check-label" for="flexCheckChecked">
-        By Park Type
-      </label>
-    </div>
-
+      <hr class="featurette-divider">
+      
   
-    <div class="container"style="display:" >
+    <div class="container" >
       <div class="row mt-4">
-          <div class="col">
-              <select id="Dropdown" class="form-select">
-                  <option selected value="">Please Select A Location </option>
-  
-              </select>
+          <div class="col" id="locationDropdown">
+              
           </div>
-      </div>
-      <div class="row mt-4">
-          <div class="col">
 
-            <table class="table table-boredred">  
+          <!-- <h1>Hello Sam</h1> -->
+      </div>
+      <div class="container" >
+        <div class="row mt-4">
+            <div class="col"id="typeDropdown" >
+                <!-- <select class="form-select">
+                    <option selected value="">Search By Park Type </option>
+    
+                </select> -->
+            </div>
+        </div>
+      <div class="row mt-4">
+          <div class="col" id="displayResult">
+          
+            <!-- <table class="table table-boredred">  
               <thead>
                 <tr>
                   <th>Location Name</th>
@@ -94,10 +86,12 @@
               <tbody id="listResults">
 
               </tbody>
+              <tbody id="listResults2">
+
+              </tbody> 
 
 
-
-            </table>
+            </table> -->
 
           </div>
       </div>
@@ -114,7 +108,7 @@
   <script src="scripts/locationData.js"></script>
   <script src="scripts/parkTypesData.js"></script>
   <script src="scripts/natinalParkData.js"></script>
- <script src="scripts/index.js"></script> 
+ <script src="scripts/park.js"></script> 
  
   <footer></footer>
 </html>

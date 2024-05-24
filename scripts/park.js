@@ -5,21 +5,20 @@ const searchByLocation = document.getElementById("locationData");
 const typedropdown = document.getElementById("typeDropdown");
 const displayResult = document.getElementById("displayResult");
 const locationDropdown = document.getElementById("locationDropdown")
-
-
 window.onload = () => {
+  // const parksDetailRow = document.getElementById("parksDetailRow");
+  populateParkType();
+  populateStatesList();
+  // dropdown.onchange = onDropdownChange;
+  //listResults.onchange = onListChange;
+  // typedropdown.onchange = ontypeDropdownChange;
+  // const parksListRow = document.getElementById("parksDetailRow");
 
-    const parksListRow = document.getElementById("parksDetailRow");
-
-    console.log("load");
-
-
-    for(let parks of nationalParksArray){
-        let parksColumnElement = createParksColumnElement(parks);
-        parksListRow.appendChild(parksColumnElement);
-    }
- };
- function populateStatesList() {
+  //for(let parks of nationalParksArray){
+  //let parksColumnElement = createParksColumnElement(parks);
+  // parksListRow.appendChild(parksColumnElement);
+};
+function populateStatesList() {
   // console.log("populate");
   const selectLocation = document.createElement("select");
   selectLocation.className = "form-control"
@@ -39,22 +38,34 @@ window.onload = () => {
   locationDropdown.appendChild(selectLocation)
 }
 function populateParkType() {
-  for (let i = 0; i < parkTypesArray.length; i++) {
-    let newOption = document.createElement("option");
-    newOption.textContent = parkTypesArray[i];
-    newOption.value = parkTypesArray[i];
+  // for (let i = 0; i < parkTypesArray.length; i++) {
+  //   let newOption = document.createElement("option");
+  //   newOption.textContent = parkTypesArray[i];
+  //   newOption.value = parkTypesArray[i];
+  const  selectParkType = document.createElement("select");
+  selectParkType.className = "form-control";
 
-    typedropdown.appendChild(newOption);
+  selectParkType.addEventListener("change",() => ontypeDropdownchange(selectParkType.value) )
+
+  const topOption = document.createElement("option");
+  topOption.textContent = "Select A Park Type";
+  selectParkType.appendChild(topOption);
+
+    typedropdown.appendChild(topOption);
+    parkTypesArray.forEach(State => {
+      const newOption = document.createElement("option");
+      newOption.textContent = State;
+      selectParkType.appendChild(newOption)
+    })
+    typedropdown.appendChild(selectParkType)
   }
   //console.log(populateParkType);
-}
+
 function onDropdownChange(selectedLocation) {
   const filteredParks = nationalParksArray.filter(park => park.State === selectedLocation)
   // console.log(selectedLocation)
   if (filteredParks.length > 0) {
-
     displayResult.innerHTML = "";
-
     const table = document.createElement("table");
     table.id = "parkListings";
     table.className = "table mt-5";
@@ -77,96 +88,39 @@ function onDropdownChange(selectedLocation) {
       row.appendChild(createCell(park.Address));
       tbody.appendChild(row);
     });
-
     table.appendChild(tbody);
     displayResult.appendChild(table);
   } else {
     displayResult.innerHTML = `<p class = "mt-5">No parks found in ${selectedLocation}.</p>`;
   }
-
 }
-
-
 function createCell(text) {
   const cell = document.createElement("td");
   cell.textContent = text;
   cell.className = "w-25"
   return cell;
 }
-
-
- function createParksColumnElement(parks){
-  
+function createParksColumnElement(parks){
   let parksColumnDiv = document.createElement("div");
-    parksColumnDiv.className = "col";
-
+  parksColumnDiv.className = "col";
   let parksCardDiv = document.createElement("div");
   parksCardDiv.className = "card card";
-
-parksColumnDiv.appendChild(parksCardDiv);
-
-  
-
+  parksColumnDiv.appendChild(parksCardDiv);
   let cardBodyDiv = document.createElement("div");
   cardBodyDiv.className = "card-body";
-
   parksCardDiv.appendChild(cardBodyDiv);
-
   let parksHeadedTag = document.createElement("h6");
   parksHeadedTag.innerHTML = parks.LocationName;
 
   cardBodyDiv.appendChild(parksHeadedTag);
-
-
   let para = document.createElement("p");
   para.className = "card-text";
-
-  
-
   cardBodyDiv.appendChild(para);
-
-
-  //let visit = document.createElement("a");
-  //visit.href = parks.visit;
-  //visit.innerHTML = parks.visit;para.appendChild();
-
-
-
-
-
- 
-
-
-  return parksColumnDiv;
-
- }
-
-  
-
- let parksColumnDiv = document.createElement("div");
- parksColumnDiv.className = "card text-bg-light mb-3";
-  parksColumnDiv.style ="max-width: 18rem;";
- 
-let parksCardDiv = document.createElement("div");
-parksCardDiv.className = "card header";
-parksCardDiv.innerHTML = parks.State;
-
-
-parksColumnDiv.appendChild(parksCardDiv);
-
-
-
-let cardBodyDiv = document.createElement("div");
-cardBodyDiv.className = "card-body";
-
-parksCardDiv.appendChild(cardBodyDiv);
-
-let parksHeadedTag = document.createElement("h5");
-parksHeadedTag.innerHTML = parks.LocationName;
-
-cardBodyDiv.appendChild(parksHeadedTag);
-
-
-let para = document.createElement("p");
-para.className = "card-text";
-cardBodyDiv.appendChild(para);
+}
+function ontypeDropdownchange(selectedParkType){
+  const filteredParks = nationalParksArray.filter(park => park.parkType === selectedParkType);
+  if(filteredParks.length > 0){
+  }else{
+    displayResult.innerHTML =  displayResult.innerHTML = `<p class = "mt-5">No parks found in ${selectedParkType}.</p>`;
+  }
+}
